@@ -1,8 +1,0 @@
-
-src
-node_modules
-dist
-webpack.dev.js
-webpack.prod.js
-xxwebpack.config.js
-.gitignore
