@@ -1,8 +1,18 @@
-# Webpack
+# Webpack Boilerplate
 
 ## Directory
 
 - [Installation](#installation)
+
+- [list of Dependincies](#list-of-dependencies)
+
+- [Scripts](#scripts)
+
+- [Environment Variables](#environment-variables)
+
+- [Useful Cli's](#useful-clis)
+
+- [Features](#features)
 
 ## Installation
 
@@ -10,13 +20,13 @@
 npm i
 ```
 
-### Install Dependencies separately
+### List of Dependencies
 
 ```bash
-npm i -D webpack webpack-cli html-loader style-loader css-loader csv-loader xml-loader toml yamljs json5 html-webpack-plugin clean-webpack-plugin  webpack-dev-server mini-css-extract-plugin css-minimizer-webpack-plugin sass-loader node-sass  babel-loader @babel/core @babel/preset-env
+webpack webpack-cli html-loader style-loader css-loader csv-loader xml-loader toml yamljs json5 html-webpack-plugin clean-webpack-plugin  webpack-dev-server mini-css-extract-plugin css-minimizer-webpack-plugin sass-loader node-sass  babel-loader @babel/core @babel/preset-env
 ```
 
-## Scripts Example
+## Scripts
 
 ```json
   "start": "webpack serve --env development sourcemap",
