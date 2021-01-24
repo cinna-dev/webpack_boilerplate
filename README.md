@@ -1,9 +1,3 @@
----
-title: Webpack
-author: Philipp Puls
-date: 14.01.2021
----
-
 # Webpack
 
 ## Directory
