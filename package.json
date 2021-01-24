@@ -1,0 +1,38 @@
+{
+  "name": "cinna-webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "webpack boilerplate",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --env development sourcemap ",
+    "build": "webpack --progress=profile --env production babel",
+    "server": "node server.js"
+  },
+  "author": "cinna-dev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^1.2.0",
+    "csv-loader": "^3.0.3",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^4.5.1",
+    "json5": "^2.1.3",
+    "mini-css-extract-plugin": "^1.3.4",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
+    "toml": "^3.0.0",
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.2",
+    "xml-loader": "^1.2.1",
+    "yamljs": "^0.3.0"
+  }
+}
