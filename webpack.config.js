@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const toml = require('toml');
 const yaml = require('yamljs');
 const json5 = require('json5');
@@ -31,8 +32,6 @@ const config = {
 
 module.exports = (env, argv) => {
 
-  console.log(env);
-
   ///////////// Plugins //////////////
   config.plugins = [
     new CleanWebpackPlugin({
@@ -40,12 +39,20 @@ module.exports = (env, argv) => {
       cleanStaleWebpackAssets: false
     }),
     new HtmlWebpackPlugin({
-      title: env.production ? 'Production' : 'Development' ,
-      template: "./src/template.html",
+      title: 'Home',
+      template: "./src/index.html",
+      filename: 'index.html',
+      minify: !!env.production ,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'About',
+      template: "./src/about.html",
+      filename: 'about.html',
+      minify: !!env.production ,
     }),
   ]
 
-  if(env.production){
+  if(!!env.production){
     config.plugins.push(
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
@@ -63,9 +70,6 @@ module.exports = (env, argv) => {
   const sourcemap = env.development ? 'inline-source-map' : 'source-map';
 
   config.devtool = env.sourcemap ?  sourcemap : false ;
-  // config.devtool = false;
-
-  // if (argv.mode === 'development' || env.development) {
 
   ////////// Dev Server /////////
   config.devServer = {
@@ -97,7 +101,7 @@ module.exports = (env, argv) => {
         // }
       // }
     },
-    minimize: env.production? true: false,
+    minimize: !!env.production,
     minimizer: [
       `...`,
       new CssMinimizerPlugin({
@@ -159,6 +163,14 @@ module.exports = (env, argv) => {
             }
           },
           { loader: 'css-loader', options: { sourceMap: !!env.sourcemap } },
+          { loader: 'postcss-loader', options: {
+            postcssOptions: {
+              plugins: [[
+                autoprefixer,
+              ]]
+            },
+            sourceMap: !!env.sourcemap
+            }},
           { loader: 'sass-loader', options: { sourceMap: !!env.sourcemap } },
         ],
       },
