@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 const autoprefixer = require('autoprefixer');
 const toml = require('toml');
 const yaml = require('yamljs');
@@ -34,6 +35,7 @@ module.exports = (env, argv) => {
 
   ///////////// Plugins //////////////
   config.plugins = [
+    postcssPresetEnv({stage: 3}),
     new CleanWebpackPlugin({
       // prevents cleaning of the html file
       cleanStaleWebpackAssets: false
@@ -143,6 +145,7 @@ module.exports = (env, argv) => {
     )
   }
 
+
   config.module.rules = [...config.module.rules,
     {
       test: /\.html$/i,
@@ -166,6 +169,7 @@ module.exports = (env, argv) => {
           { loader: 'postcss-loader', options: {
             postcssOptions: {
               plugins: [[
+                postcssPresetEnv,
                 autoprefixer,
               ]]
             },

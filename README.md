@@ -23,7 +23,7 @@ npm i
 ### List of Dependencies
 
 ```bash
-webpack webpack-cli html-loader style-loader css-loader postcss-loader postcss autoprefixer csv-loader xml-loader toml yamljs json5 html-webpack-plugin clean-webpack-plugin  webpack-dev-server mini-css-extract-plugin css-minimizer-webpack-plugin sass-loader node-sass babel-loader @babel/core @babel/preset-env
+webpack webpack-cli html-loader style-loader css-loader postcss-loader postcss postcss-preset-env autoprefixer csv-loader xml-loader toml yamljs json5 html-webpack-plugin clean-webpack-plugin  webpack-dev-server mini-css-extract-plugin css-minimizer-webpack-plugin sass-loader node-sass babel-loader @babel/core @babel/preset-env
 ```
 
 ## Scripts
